@@ -1,4 +1,4 @@
-package com.example.prm_assignment.DAO;
+package com.example.prm_assignment.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.prm_assignment.Model.Attendance;
+import com.example.prm_assignment.entities.Attendance;
 
 import java.util.List;
 

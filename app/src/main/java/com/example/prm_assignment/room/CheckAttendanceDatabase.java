@@ -1,18 +1,18 @@
-package com.example.prm_assignment.Room;
+package com.example.prm_assignment.room;
 
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.prm_assignment.DAO.AttendanceDAO;
-import com.example.prm_assignment.DAO.ClassDAO;
-import com.example.prm_assignment.DAO.MentorDAO;
-import com.example.prm_assignment.DAO.StudentDAO;
-import com.example.prm_assignment.DAO.StudyingDAO;
-import com.example.prm_assignment.Model.Attendance;
-import com.example.prm_assignment.Model.Mentor;
-import com.example.prm_assignment.Model.Student;
-import com.example.prm_assignment.Model.Studying;
+import com.example.prm_assignment.dao.AttendanceDAO;
+import com.example.prm_assignment.dao.ClassDAO;
+import com.example.prm_assignment.dao.MentorDAO;
+import com.example.prm_assignment.dao.StudentDAO;
+import com.example.prm_assignment.dao.StudyingDAO;
+import com.example.prm_assignment.entities.Attendance;
+import com.example.prm_assignment.entities.Mentor;
+import com.example.prm_assignment.entities.Student;
+import com.example.prm_assignment.entities.Studying;
 
 @android.arch.persistence.room.Database(
         entities = {

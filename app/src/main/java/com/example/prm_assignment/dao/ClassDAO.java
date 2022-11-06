@@ -1,4 +1,4 @@
-package com.example.prm_assignment.DAO;
+package com.example.prm_assignment.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
