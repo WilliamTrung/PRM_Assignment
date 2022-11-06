@@ -1,4 +1,4 @@
-package com.example.prm_assignment.Model;
+package com.example.prm_assignment.entities;
 
 
 import androidx.room.ColumnInfo;
