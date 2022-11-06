@@ -25,4 +25,5 @@ public interface StudyingDAO {
 
     @Query("UPDATE Studying set Status = status")
     LiveData<Studying> updateStatus(String student_id, String class_id, boolean status);
+
 }
