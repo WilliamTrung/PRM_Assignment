@@ -27,7 +27,8 @@ public class ClassRepository {
     public ClassModel getClassModelByMentorId_RoomId(int mentor_id, int room_id){
         List<Student> students = studentRepository.getStudentsByClassId(room_id);
         Class room = classDAO.getClassById(room_id);
-        ClassModel classModel = new ClassModel(room, mentor_id, students);
+        Mentor mentor = classDAO.getMentorByClassId(room_id);
+        ClassModel classModel = new ClassModel(room, mentor, students);
         return classModel;
     }
     public Class getClassById(int class_id){

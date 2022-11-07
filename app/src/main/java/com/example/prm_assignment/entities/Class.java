@@ -13,8 +13,8 @@ import androidx.room.PrimaryKey;
 public class Class {
     @PrimaryKey
     @ColumnInfo(name = "ID")
-    public String id;
+    public int id;
 
     @ColumnInfo(name = "Mentor_ID")
-    public String mentor_id;
+    public int mentor_id;
 }

@@ -20,6 +20,6 @@ public interface StudentDAO {
     @Update
     void updateStudent(Student student);
 
-    @Query("SELECT * from Student ORDER BY ID ASC")
-    LiveData<List<Student>> getAllStudent();
+    @Query("SELECT * FROM Student s left join Studying sing on s.ID == sing.Student_ID AND sing.Class_ID == (:class_id)")
+    List<Student> getStudentsByClassId(int class_id);
 }
