@@ -13,12 +13,25 @@ import java.util.List;
 
 public class StudentRepository {
     private StudentDAO studentDAO;
-    private LiveData<List<Student>> students;
 
     public StudentRepository(Application application){
         CheckAttendanceDatabase db =  CheckAttendanceDatabase.getDatabase(application);
         studentDAO = db.studentDAO();
-        students = studentDAO.getAllStudent();
+    }
+    public List<Student> getStudentsByClassId(int class_id){
+        return studentDAO.getStudentsByClassId(class_id);
+    }
+    public void updateMultiple(List<Student> students){
+        for (Student student : students
+             ) {
+            update(student);
+        }
+    }
+    public void insertMultiple(List<Student> students){
+        for (Student student : students
+             ) {
+            insert(student);
+        }
     }
     public void insert(Student student){
         new insertAsync(studentDAO).execute(student);
