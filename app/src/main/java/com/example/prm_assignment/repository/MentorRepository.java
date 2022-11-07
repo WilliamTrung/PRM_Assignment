@@ -30,7 +30,7 @@ public class MentorRepository {
         classRepository = new ClassRepository(application);
     }
     public MentorModel getMentorModel(Mentor mentor){
-        Mentor login = mentorDAO.login(mentor.id, mentor.password);
+        Mentor login = mentorDAO.login(mentor.name, mentor.password);
         MentorModel result = null;
         if(login != null){
             List<ClassModel> classes = classRepository.getClassesByMentorId(login.id);
