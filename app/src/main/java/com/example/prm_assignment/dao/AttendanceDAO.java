@@ -20,9 +20,6 @@ public interface AttendanceDAO {
     @Update
     void updateAttendance(Attendance attendance);
 
-    @Query("SELECT * from Attendance ORDER BY Class_ID ASC")
-    LiveData<List<Attendance>> getAllAttendance();
-
-    @Query("UPDATE Studying set Status = status")
-    LiveData<Attendance> updateStatus(String student_id, String class_id, boolean status);
+    @Query("UPDATE Attendance set Status = (:status) WHERE Class_ID == (:class_id) AND Student_ID == (:student_id)")
+    Attendance checkAttendance (int class_id, int student_id, boolean status);
 }
