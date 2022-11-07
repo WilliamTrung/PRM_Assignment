@@ -5,28 +5,38 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.prm_assignment.dao.ClassDAO;
 import com.example.prm_assignment.dao.MentorDAO;
 import com.example.prm_assignment.dao.StudentDAO;
+import com.example.prm_assignment.entities.Class;
 import com.example.prm_assignment.entities.Mentor;
 import com.example.prm_assignment.entities.Student;
-import com.example.prm_assignment.models.MentorClasses;
+import com.example.prm_assignment.models.ClassModel;
+import com.example.prm_assignment.models.MentorModel;
 import com.example.prm_assignment.room.CheckAttendanceDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class MentorRepository {
     private MentorDAO mentorDAO;
-    private LiveData<List<MentorClasses>> mentorClasses;
-    private LiveData<List<Mentor>> mentors;
+    private ClassRepository classRepository;
 
     public MentorRepository(Application application){
         CheckAttendanceDatabase db =  CheckAttendanceDatabase.getDatabase(application);
         mentorDAO = db.mentorDAO();
-        mentors = mentorDAO.getAllMentor();
+        classRepository = new ClassRepository(application);
     }
-
-    public LiveData<MentorClasses> login(String name, String password){
-        return mentorDAO.login(name, password);
+    public MentorModel getMentorModel(Mentor mentor){
+        Mentor login = mentorDAO.login(mentor.id, mentor.name);
+        MentorModel result = null;
+        if(login != null){
+            List<ClassModel> classes = classRepository.getClassesByMentorId(login.id);
+            result = new MentorModel(login, classes);
+        }
+        return null;
     }
     public void insert(Mentor mentor){
         new MentorRepository.insertAsync(mentorDAO).execute(mentor);
