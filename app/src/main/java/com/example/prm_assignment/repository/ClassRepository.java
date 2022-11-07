@@ -24,31 +24,32 @@ public class ClassRepository {
         studentRepository = new StudentRepository(application);
         classDAO = db.classDAO();
     }
-    public ClassModel getClassModelByMentorId_RoomId(int mentor_id, int room_id){
+    public ClassModel getClassModelByMentorId_RoomId(int room_id){
         List<Student> students = studentRepository.getStudentsByClassId(room_id);
         Class room = classDAO.getClassById(room_id);
         Mentor mentor = classDAO.getMentorByClassId(room_id);
         ClassModel classModel = new ClassModel(room, mentor, students);
         return classModel;
     }
-    public Class getClassById(int class_id){
-        return classDAO.getClassById(class_id);
-    }
     public List<ClassModel> getClassesByMentorId(int mentor_id){
         List<ClassModel> classes = new ArrayList<>();
         List<Class> rooms = classDAO.getClassesByMentor(mentor_id);
         for (Class room: rooms
         ) {
-            ClassModel classModel = getClassModelByMentorId_RoomId(mentor_id, room.id);
+            ClassModel classModel = getClassModelByMentorId_RoomId(room.id);
             classes.add(classModel);
         }
         return classes;
     }
-    public void insert(Class classStudying){
-        new ClassRepository.insertAsync(classDAO).execute(classStudying);
+    public void insert(ClassModel room){
+        new ClassRepository.insertAsync(classDAO).execute(room.getRoom());
     }
-    public void update(Class classStudying, Mentor mentor){
-
+    public boolean delete(ClassModel room){
+        if(room.getStudents() == null || room.getStudents().size() == 0){
+            new deleteAsync(classDAO).execute(room.getRoom());
+            return true;
+        }
+        return false;
     }
     private static class insertAsync extends AsyncTask<Class, Void, Void> {
 
