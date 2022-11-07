@@ -23,11 +23,11 @@ import androidx.room.PrimaryKey;
 public class Studying {
     @PrimaryKey
     @ColumnInfo(name = "Student_ID")
-    public String student_id;
+    public int student_id;
 
     @PrimaryKey
     @ColumnInfo(name = "Class_ID")
-    public String class_id;
+    public int class_id;
 
     @ColumnInfo(name = "Status")
     public boolean status;

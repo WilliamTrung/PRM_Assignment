@@ -9,7 +9,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.prm_assignment.entities.Mentor;
-import com.example.prm_assignment.models.MentorClasses;
 
 import java.util.List;
 
@@ -24,9 +23,8 @@ public interface MentorDAO {
     void updateMentor(Mentor mentor);
 
     @Query("SELECT * from Mentor ORDER BY ID ASC")
-    LiveData<List<Mentor>> getAllMentor();
+    List<Mentor> getAllMentor();
 
-    @Transaction
-    @Query("SELECT * FROM Mentor WHERE Mentor.Name == (:name) AND Mentor.Password == (:password)")
-    public LiveData<MentorClasses> login(String name, String password);
+    @Query("SELECT * FROM MENTOR WHERE ID == (:mentor_id) AND Password == (:password)")
+    Mentor login (int mentor_id, String password);
 }

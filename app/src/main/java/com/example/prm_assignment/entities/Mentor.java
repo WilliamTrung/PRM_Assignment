@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 public class Mentor {
     @PrimaryKey
     @ColumnInfo(name = "ID")
-    public String id;
+    public int id;
 
     @ColumnInfo(name = "Name")
     public String name;
