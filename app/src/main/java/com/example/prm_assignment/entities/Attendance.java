@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.sql.Date;
+
 @Entity(foreignKeys =
         {
                 @ForeignKey(entity = Student.class,
@@ -32,4 +34,7 @@ public class Attendance {
 
     @ColumnInfo(name = "Status")
     public boolean status;
+
+    @ColumnInfo(name = "Date")
+    public Date date;
 }

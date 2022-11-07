@@ -25,6 +25,6 @@ public interface MentorDAO {
     @Query("SELECT * from Mentor ORDER BY ID ASC")
     List<Mentor> getAllMentor();
 
-    @Query("SELECT * FROM MENTOR WHERE ID == (:mentor_id) AND Password == (:password)")
-    Mentor login (int mentor_id, String password);
+    @Query("SELECT * FROM MENTOR WHERE ID == (:mentor_name) AND Password == (:password)")
+    Mentor login (String mentor_name, String password);
 }
