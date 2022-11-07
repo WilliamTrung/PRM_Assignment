@@ -1,6 +1,7 @@
 package com.example.prm_assignment.models;
 
 import com.example.prm_assignment.entities.Attendance;
+import com.example.prm_assignment.entities.Class;
 import com.example.prm_assignment.entities.Student;
 
 import java.util.ArrayList;
@@ -10,11 +11,13 @@ public class AttendanceFormModel {
     private Class room;
     private List<AttendanceModel> attendances;
 
-    public AttendanceFormModel(Class room){
+    public AttendanceFormModel(Class room, List<AttendanceModel> attendances){
         this.room = room;
-        attendances = new ArrayList<>();
+        this.attendances = attendances;
     }
-
+    public Class getRoom(){
+        return room;
+    }
     public List<AttendanceModel> getAttendances() {
         return attendances;
     }
@@ -27,6 +30,7 @@ public class AttendanceFormModel {
         }
         return false;
     }
+
     public void addAttendance(AttendanceModel attendanceModel){
         if(!checkStudent(attendanceModel.getStudent())){
             attendances.add(attendanceModel);
