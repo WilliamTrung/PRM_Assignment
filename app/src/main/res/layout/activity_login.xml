@@ -54,7 +54,6 @@
         android:layout_centerHorizontal="true"
         android:background="#70ffffff"
         android:layout_margin="20dp"
-        android:text="@string/login"
-        android:onClick="Login"/>
+        android:text="@string/login"/>
 
 </RelativeLayout>
