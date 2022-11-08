@@ -1,6 +1,5 @@
 package com.example.prm_assignment.dao;
 
-import android.arch.persistence.room.Transaction;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
@@ -27,4 +26,7 @@ public interface MentorDAO {
 
     @Query("SELECT * FROM MENTOR WHERE ID == (:mentor_name) AND Password == (:password)")
     Mentor login (String mentor_name, String password);
+
+    @Query("INSERT INTO MENTOR (Name, Password) VALUES ((:name), (:password))")
+    void insertMentor (String name, String password);
 }

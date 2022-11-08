@@ -1,6 +1,5 @@
 package com.example.prm_assignment.dao;
 
-import android.arch.persistence.room.Transaction;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
