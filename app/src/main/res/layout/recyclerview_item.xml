@@ -21,10 +21,12 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:textSize="26dp"
             android:gravity="center"
             android:text="@string/class_name"
-            android:textStyle="bold" />
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:onClick="onClick"
+            android:clickable="true"/>
 
         <TextView
             android:id="@+id/id_mentor_name"
@@ -36,6 +38,8 @@
             android:text="@string/mentor_name"
             android:textAlignment="viewStart"
             android:textSize="15dp"
-            tools:ignore="RtlCompat" />
+            tools:ignore="RtlCompat"
+            android:onClick="onClick"
+            android:clickable="true"/>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
