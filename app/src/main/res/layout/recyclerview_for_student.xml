@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp">
+
+        <TextView
+            android:id="@+id/id_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="@string/student_name"
+            android:textAlignment="viewStart"
+            android:textSize="15dp"
+            tools:ignore="RtlCompat" />
+
+        <CheckBox
+            android:id="@+id/Present"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="220dp"
+            android:layout_alignParentTop="true"
+            android:text="@string/present" />
+
+        <CheckBox
+            android:id="@+id/Absent"
+            android:layout_width="90dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/Present"
+            android:text="@string/absent"/>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
