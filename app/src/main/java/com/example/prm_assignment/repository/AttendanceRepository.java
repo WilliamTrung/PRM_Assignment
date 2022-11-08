@@ -36,7 +36,7 @@ public class AttendanceRepository {
         AttendanceFormModel formModel = new AttendanceFormModel(room, getAttendanceModels(room));
         return  formModel;
     }
-    private List<AttendanceModel> getAttendanceModels(Class room){
+    public List<AttendanceModel> getAttendanceModels(Class room){
         List<Student> students = studentRepository.getStudentsByClassId(room.id);
         List<AttendanceModel> attendanceModels = new ArrayList<>();
         setToday();
